@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "maven"
+    }
+    stages {
+        stage('Gitcheckout') {
+            steps {
+             checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'tomcat-credencials', url: 'https://github.com/SURESH9980/maven-job.git']])       
+        }
+        }
+       stage('build') {
+            steps {
+             bat 'mvn -f simple-java-project-master/pom.xml clean install -DskipTests'
+        }
+        }
+        stage('deploy') {
+            steps {
+             deploy adapters: [tomcat8(credentialsId: 'tomcat-credencials', path: '', url: 'http://localhost:7000/')], contextPath: 'simple-java-project-master', war: '**/*.war'
+            }
+        }
+    }
+}
