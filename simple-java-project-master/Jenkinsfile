@@ -5,7 +5,7 @@ pipeline {
         maven "maven"
     }
     stages {
-        stage('Gitcheckout') {
+        stage('Gitcheckout in github') {
             steps {
              checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'tomcat-credencials', url: 'https://github.com/SURESH9980/maven-job.git']])       
         }
