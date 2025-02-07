@@ -10,7 +10,7 @@ pipeline {
              checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'tomcat-credencials', url: 'https://github.com/SURESH9980/maven-job.git']])       
         }
         }
-       stage('build') {
+       stage('build in jenkins') {
             steps {
              bat 'mvn -f simple-java-project-master/pom.xml clean install -DskipTests'
         }
