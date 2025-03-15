@@ -1,0 +1,6 @@
+projectKey=works.buddy.samples:works-with-heroku
+serverUrl=http://localhost:9000
+serverVersion=25.2.0.102705
+dashboardUrl=http://localhost:9000/dashboard?id=works.buddy.samples%3Aworks-with-heroku
+ceTaskId=cdbb19c3-083d-47e7-a13c-1c5bf0745e98
+ceTaskUrl=http://localhost:9000/api/ce/task?id=cdbb19c3-083d-47e7-a13c-1c5bf0745e98
